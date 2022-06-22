@@ -1,6 +1,6 @@
 function amogd()
 {
-  document.getElementById("result").innerHTML = this.responseText;
+  document.getElementById("result").innerHTML = this.status;
 }
 
 function test()
