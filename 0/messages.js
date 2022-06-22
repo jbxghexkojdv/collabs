@@ -5,7 +5,7 @@ function amogd()
 
 function test()
 {
-  let r = new XMLHttRequest();
+  let r = new XMLHttpRequest();
   r.addEventListener("load", amogd);
   r.open("GET", "./messages.js");
   r.send();
