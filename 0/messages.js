@@ -28,6 +28,17 @@ function Chat(ownerId, name = "ibxtoychat")
   this.people = [ownerId];
 }
 
+function format(message)
+{
+  let retStr = "";
+  let lines = message.split("\n");
+  for (let i in lines)
+  {
+    
+  }
+  return retStr:
+}
+
 function send()
 {
   const data = messageBox.value;
