@@ -50,6 +50,6 @@ function format(message)
 function send()
 {
   const data = messageBox.value;
-  messageBox.value = format(data);
+  messageBox.innerHTML = format(data);
   const test = new File("foo bar", "test.txt");
 }
