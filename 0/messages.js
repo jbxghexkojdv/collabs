@@ -31,10 +31,18 @@ function Chat(ownerId, name = "ibxtoychat")
 function format(message)
 {
   let retStr = "";
-  let lines = message.split("\n");
+  let lines = message.split(/(\n)|(\\n)/);
   for (let i in lines)
   {
-    
+    let line = lines[i];
+    if (line.match(/^#+ /))
+    {
+      let headerNum = line.match(/^#+ /)[0].length;
+      line = line.replace(/^#+ /, `<h{headerNum}>`);
+      line += `</h{headerNum}>`;
+    }
+    line += "<br />";
+    retStr += line;
   }
   return retStr:
 }
