@@ -1,5 +1,7 @@
 import chatData from './chat.json' assert {type: 'json'};
 
+let messageBox = document.getElementsByTagName("input");
+
 function User(name = "Anonymous Dab", username = Math.random(), pfpLink = "", desc = "", email = "noreply@youtube.com", password = "jbxghexkojdv")
 {
   this.name = name;
@@ -18,9 +20,22 @@ function Message(userId, text = "I somehow sent no message:)", date = new Date("
   this.time = date;
 }
 
-function Chat(ownerId)
+function Chat(ownerId, name = "ibxtoychat")
 {
   this.owner = ownerId;
   this.messages = [];
+  this.name = name;
   this.people = [ownerId];
+}
+
+function send()
+{
+  const data = messageBox.value;
+  messageBox.value = "";
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "./chat.json", true);
+  xhr.onload = () => {
+    messageBox.value = xhr.status;
+  }
+  xhr.send(JSON.stringify(data));
 }
