@@ -50,6 +50,6 @@ function format(message)
 function send()
 {
   const data = messageBox.value;
-  messageBox.innerHTML = format(data);
+  document.getElementById("wip-message").innerHTML = format(data);
   const test = new File("foo bar", "test.txt");
 }
