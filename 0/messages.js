@@ -1,6 +1,6 @@
 import chatData from './chat.json' assert {type: 'json'};
 
-let messageBox = document.getElementsByTagName("input");
+let messageBox = document.getElementsByTagName("input")[0];
 
 function User(name = "Anonymous Dab", username = Math.random(), pfpLink = "", desc = "", email = "noreply@youtube.com", password = "jbxghexkojdv")
 {
