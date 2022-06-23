@@ -32,10 +32,5 @@ function send()
 {
   const data = messageBox.value;
   messageBox.value = "";
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "./chat.json", true);
-  xhr.onload = () => {
-    messageBox.value = xhr.status;
-  }
-  xhr.send(JSON.stringify(data));
+  const test = new File("foo bar", "test.txt");
 }
