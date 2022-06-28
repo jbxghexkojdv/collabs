@@ -1,5 +1,6 @@
-img.bimg
+img.bimg,
+button:has(img.bimg)
 {
-  height: 32px;
-  width: 32px;
+  height: 20px;
+  width: 20px;
 }
