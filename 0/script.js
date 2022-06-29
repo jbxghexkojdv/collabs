@@ -1,4 +1,3 @@
-
 function newTask(text = "", parent = document.getElementsByTagName("body")[0])
 {
   let elem = document.createElement("div");
@@ -35,4 +34,9 @@ function createTask()
 {
   tasks.push(newTask(document.getElementsByTagName("input")[0].value));
   document.cookie = "tasks=" + JSON.stringify(tasks) + ";";
+}
+
+for(let i of tasks)
+{
+  newTask(i);
 }
