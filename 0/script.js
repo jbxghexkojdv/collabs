@@ -36,5 +36,5 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
 
 function createTask()
 {
-  newTask(document.getElementsByTagName("input")[0].value);
+  return newTask(document.getElementsByTagName("input")[0].value);
 }
