@@ -26,17 +26,13 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
   cancelButton.innerHTML = "Cancel task";
   completeButton.innerHTML = "This task has been completed";
 
-  return 
-  {
-    main: elem,
-    canceler: cancelButton,
-    completer: completeButton
-  };
+  return text;
 }
+
+let tasks = document.cookie ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
 
 function createTask()
 {
-  return newTask(document.getElementsByTagName("input")[0].value);
+  tasks.push(newTask(document.getElementsByTagName("input")[0].value));
+  document.cookie = "tasks=" + JSON.stringify(tasks) + ";";
 }
-
-newTask("test");
