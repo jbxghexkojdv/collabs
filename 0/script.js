@@ -38,3 +38,5 @@ function createTask()
 {
   return newTask(document.getElementsByTagName("input")[0].value);
 }
+
+newTask("test");
