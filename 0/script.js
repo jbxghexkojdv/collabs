@@ -1,3 +1,5 @@
+let tasks = document.cookie ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
+
 function newTask(text = "", parent = document.getElementsByTagName("body")[0])
 {
   let elem = document.createElement("div");
@@ -14,10 +16,12 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
   cancelButton.onclick = () => 
   {
     elem.remove();
+    updateCookie();
   }
   completeButton.onclick = () => 
   {
     elem.remove();
+    updateCookie();
     // I need to put a congratulations here eventually
   }
 
@@ -28,12 +32,15 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
   return text;
 }
 
-let tasks = document.cookie ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
+function updateCookie()
+{
+  document.cookie = "tasks=" + JSON.stringify(tasks) + ";";
+}
 
 function createTask()
 {
   tasks.push(newTask(document.getElementsByTagName("input")[0].value));
-  document.cookie = "tasks=" + JSON.stringify(tasks) + ";";
+  updateCookie();
 }
 
 for(let i of tasks)
