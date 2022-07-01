@@ -71,4 +71,5 @@ for(let i of tasks)
 function clearCookie()
 {
   document.cookie = "tasks=[]";
+  document.getElementsByTagName("input")[0].value = JSON.stringify(cookieReader());
 }
