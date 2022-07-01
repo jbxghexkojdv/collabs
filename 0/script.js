@@ -1,6 +1,7 @@
 let cr = document.createElement("script");
 cr.src = "../../cookieReader.js";
 document.getElementsByTagName("body")[0].insertBefore(cr, document.getElementsByTagName("script")[0]);
+document.getElementsByTagName("input")[0].value = JSON.stringify(cookieReader());
 
 let tasks = document.cookie && (typeof JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) == 'array') ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
 
@@ -71,5 +72,4 @@ for(let i of tasks)
 function clearCookie()
 {
   document.cookie = "tasks=[]";
-  document.getElementsByTagName("input")[0].value = JSON.stringify(cookieReader());
 }
