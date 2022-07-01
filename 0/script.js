@@ -1,6 +1,6 @@
 let cr = document.createElement("script");
 cr.src = "../../cookieReader.js";
-document.getElementsByTagName("body")[0].imsertBefore(cr, document.getElementsByTagName("script")[0]);
+document.getElementsByTagName("body")[0].insertBefore(cr, document.getElementsByTagName("script")[0]);
 
 let tasks = document.cookie && (typeof JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) == 'array') ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
 
