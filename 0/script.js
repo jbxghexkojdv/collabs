@@ -1,5 +1,10 @@
 let tasks = document.cookie ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
 
+function updateCookie()
+{
+  document.cookie = "tasks=" + JSON.stringify(tasks) + ";";
+}
+
 function newTask(text = "", parent = document.getElementsByTagName("body")[0])
 {
   let elem = document.createElement("div");
@@ -32,10 +37,6 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
   return text;
 }
 
-function updateCookie()
-{
-  document.cookie = "tasks=" + JSON.stringify(tasks) + ";";
-}
 
 function createTask()
 {
