@@ -1,4 +1,4 @@
-let tasks = document.cookie ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
+let tasks = document.cookie && (typeof JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) == 'array') ? JSON.parse(document.cookie.substring(6).match(/[^;]+/g)[0]) : [];
 
 function updateCookie()
 {
@@ -40,11 +40,31 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
 
 function createTask()
 {
-  tasks.push(newTask(document.getElementsByTagName("input")[0].value));
-  updateCookie();
+  let value = document.getElementsByTagName("input")[0];
+  if(!value.value.match(/;/))
+  {
+    if(value.value) {
+      tasks.push(newTask(value.value));
+    }
+  }
+  else
+  {
+    value.value = "Illegal character (semicolon)";
+  }
+
+  if(!value.value)
+  {
+    value.value = "Please enter something";
+  }
+ updateCookie();
 }
 
 for(let i of tasks)
 {
   newTask(i);
+}
+
+function clearCookie()
+{
+  document.cookie = "tasks=[]";
 }
