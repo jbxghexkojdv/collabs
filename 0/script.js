@@ -13,11 +13,11 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
 
   cancelButton.onclick = () => 
   {
-    document.deleteElement(elem);
+    elem.remove();
   }
   completeButton.onclick = () => 
   {
-    document.deleteElement(elem);
+    elem.remove();
     // I need to put a congratulations here eventually
   }
 
