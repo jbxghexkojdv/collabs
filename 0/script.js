@@ -1,7 +1,7 @@
 let cr = document.createElement("script");
 cr.src = "../../cookieReader.js";
 document.getElementsByTagName("body")[0].insertBefore(cr, document.getElementsByTagName("script")[0]);
-document.getElementsByTagName("input")[0].value = JSON.stringify(cookieReader());
+document.getElementsByTagName("input")[0].value = document.cookie;
 
 let tasks = [];
 
