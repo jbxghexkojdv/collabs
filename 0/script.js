@@ -26,11 +26,17 @@ function newTask(text = "", parent = document.getElementsByTagName("body")[0])
   cancelButton.onclick = () => 
   {
     elem.remove();
+    tasks = tasks.filter((value, index, arr) => {
+      return value != taskText.innerHTML;
+    });
     updateCookie();
   }
   completeButton.onclick = () => 
   {
     elem.remove();
+    tasks = tasks.filter((value, index, arr) => {
+      return value != taskText.innerHTML;
+    });
     updateCookie();
     // I need to put a congratulations here eventually
   }
@@ -71,5 +77,6 @@ for(let i of tasks)
 
 function clearCookie()
 {
-  document.cookie = "tasks=[]";
+  tasks = [];
+  updateCookie();
 }
