@@ -1,9 +1,9 @@
-let cr = document.createElement("script");
+/* let cr = document.createElement("script");
 cr.src = "../../cookieReader.js";
 document.getElementsByTagName("body")[0].insertBefore(cr, document.getElementsByTagName("script")[0]);
-document.getElementsByTagName("input")[0].value = cookieReader();
+document.getElementsByTagName("input")[0].value = cookieReader(); */
 
-let tasks = [];
+let tasks = document.cookie ? JSON.stringify(JSON.parse(document.cookie.substring(6).match(/[^;]+)[0]) : [];
 
 function updateCookie()
 {
